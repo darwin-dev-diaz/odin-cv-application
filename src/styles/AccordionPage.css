@@ -1,4 +1,4 @@
-.accordianPage{
+.accordionPage{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(4,100px);
@@ -7,10 +7,12 @@
     /* background-color: red; */
     border-radius: 10px;
     overflow: hidden;
+
+    box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px
 }
 
 
-.accordianPage-header{
+.accordionPage-header{
     background-color: #508C9B;
     color: white;
     display: flex;
@@ -18,19 +20,21 @@
     padding: 0 20px 0 20px;
     justify-content: space-between;
     align-items: center;
+    /* box-shadow: rgba(149, 157, 165, 0.15) 0px 30px 60px 0px */
     
 }
-.accordianPage-body{
+.accordionPage-body{
     /* background-color: green; */
     background-color: #EEEEEE;
     grid-row-start: span 3;
+    padding: 20px;
 }
 
-.accordianPage-header-title{
+.accordionPage-header-title{
     font-size: 40px;
 
 }
-.accordianPage-header-icon{
+.accordionPage-header-icon{
     height: 60px;
     background-color: red;
     border-radius: 50px;
