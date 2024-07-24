@@ -3,6 +3,9 @@ form{
     flex-direction: column;
     gap: 10px;
 }
+textarea{
+    resize: none;
+}
 .input-group{
     display: flex;
     flex-direction: column;
@@ -14,15 +17,13 @@ label{
     align-items: center;
 }
 
-.label-text{}
-
 .recommended-text{
     font-size: 10px;
     font-weight: bold;
     color: rgb(161, 159, 159);
 }
 
-input{
+input, textarea{
 
     padding: 5px 12px;
     font-size: 14px;

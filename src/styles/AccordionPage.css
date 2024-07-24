@@ -1,7 +1,7 @@
 .accordionPage{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(4,100px);
+    grid-template-rows: repeat(2, 100px);
     width: 400px;
     /* background-color: red; */
     border-radius: 10px;

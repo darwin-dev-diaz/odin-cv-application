@@ -2,6 +2,7 @@ import { useState } from "react";
 import AccordionPage from "./AccordionPage";
 import PersonalInfoField from "./PersonalInfoField";
 import EducationField from "./EducationField";
+import ExperienceField from "./ExperienceField";
 import "../styles/Accordion.css"
 
 export default function Accordion({ children }) {
@@ -28,7 +29,7 @@ export default function Accordion({ children }) {
         open={openID === 2}
         onOpen={()=>setOpenID(2)}
       >
-        <PersonalInfoField />
+        <ExperienceField />
       </AccordionPage>
     </div   >
   );
