@@ -43,3 +43,8 @@ input{
     }
     
 }
+
+.dates-group{
+    display: flex;
+    justify-content: space-between;
+}

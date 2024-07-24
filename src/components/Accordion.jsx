@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AccordionPage from "./AccordionPage";
 import PersonalInfoField from "./PersonalInfoField";
+import EducationField from "./EducationField";
 import "../styles/Accordion.css"
 
 export default function Accordion({ children }) {
@@ -20,8 +21,7 @@ export default function Accordion({ children }) {
         open={openID === 1}
         onOpen={()=>setOpenID(1)}
       >
-        <PersonalInfoField />
-        <PersonalInfoField />
+        <EducationField />
       </AccordionPage>
       <AccordionPage
         title="Experience"
