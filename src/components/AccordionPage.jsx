@@ -2,17 +2,23 @@ import "../styles/AccordionPage.css";
 
 import DropDownArrow from "../assets/DropDownArrow";
 
-export default function AccordionPage({ children, title }) {
+function onClick(){
+
+}
+
+export default function AccordionPage({ children, title, open, onOpen }) {
   return (
     <>
-      <li className="accordionPage">
-        <div className="accordionPage-header">
+      <li
+        className={
+          open ? "accordionPage" : "accordionPage accordionPage-closed"
+        }
+      >
+        <div className="accordionPage-header" onClick={onOpen}>
           <div className="accordionPage-header-title">{title}</div>
-          <DropDownArrow />
+          <DropDownArrow open={open}/>
         </div>
-        <div className="accordionPage-body">
-          {children}
-        </div>
+        {open ? <div className="accordionPage-body">{children}</div> : null}
       </li>
     </>
   );

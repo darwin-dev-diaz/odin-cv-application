@@ -2,17 +2,21 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(4,100px);
-    height: 400px;
     width: 400px;
     /* background-color: red; */
     border-radius: 10px;
     overflow: hidden;
-
+    
     box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px
+}
+.accordionPage-closed{
+    grid-template-rows: 100px;
+
 }
 
 
 .accordionPage-header{
+    cursor: pointer;
     background-color: #508C9B;
     color: white;
     display: flex;
@@ -42,10 +46,10 @@
 
 .dropDownSVG{
     fill: #EEEEEE;
-    transform: scale(1.5);
+    transform: scale(-1.5);
     background-color: #3a6670;
     border-radius: 50px;
-    cursor: pointer;
-
-
+}
+.dropDownSVG-closed{ 
+    transform: scale(1.5);
 }
