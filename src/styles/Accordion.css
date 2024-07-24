@@ -1,0 +1,10 @@
+.accordion-container{
+    padding: 20px;
+    background-color: #f6f6f6;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+
+}

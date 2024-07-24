@@ -1,12 +1,13 @@
 import { useState } from "react";
 import AccordionPage from "./AccordionPage";
 import PersonalInfoField from "./PersonalInfoField";
+import "../styles/Accordion.css"
 
 export default function Accordion({ children }) {
   const [openID, setOpenID] = useState(0);
 
   return (
-    <>
+    <div className="accordion-container">
       <AccordionPage
         title="Personal Info"
         open={openID === 0}
@@ -20,6 +21,7 @@ export default function Accordion({ children }) {
         onOpen={()=>setOpenID(1)}
       >
         <PersonalInfoField />
+        <PersonalInfoField />
       </AccordionPage>
       <AccordionPage
         title="Experience"
@@ -28,6 +30,6 @@ export default function Accordion({ children }) {
       >
         <PersonalInfoField />
       </AccordionPage>
-    </>
+    </div   >
   );
 }
