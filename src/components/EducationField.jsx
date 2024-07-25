@@ -65,6 +65,11 @@ export default function EducationField() {
           // value="Darwin Diaz"
         ></input>
       </div>
+
+      <div className="button-container">
+        <button className="cancel-button">Cancel</button>
+        <button className="save-button">Save</button>
+      </div>
     </form>
   );
 }

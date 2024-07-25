@@ -68,7 +68,7 @@ export default function ExperienceField() {
       <div class="input-group">
         <label for="description">
           <span class="label-text">Description</span>
-          <span class="optional-text">optional</span>
+          {/* <span class="optional-text">optional</span> */}
         </label>
         <textarea
           id="description"
@@ -76,6 +76,11 @@ export default function ExperienceField() {
           placeholder="Enter Description"
           data-key="description"
         ></textarea>
+      </div>
+
+      <div className="button-container">
+        <button className="cancel-button">Cancel</button>
+        <button className="save-button">Save</button>
       </div>
     </form>
   );
