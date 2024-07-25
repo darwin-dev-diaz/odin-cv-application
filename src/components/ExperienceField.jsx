@@ -79,8 +79,8 @@ export default function ExperienceField() {
       </div>
 
       <div className="button-container">
-        <button className="cancel-button">Cancel</button>
-        <button className="save-button">Save</button>
+        <button className="cancel-button" type="button">Cancel</button>
+        <button className="save-button" type="button">Save</button>
       </div>
     </form>
   );
