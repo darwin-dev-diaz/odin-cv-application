@@ -16,7 +16,12 @@ export default function AddExperienceField({}) {
                 <Trash/>
             </div>
         </div>
-        <div className="past-info">Company two</div>
+        <div className="past-info">Company two
+            <div className="icon-group">
+                <EditSquare/>
+                <Trash/>
+            </div>
+        </div>
         {/* have a function here that converts the object to a thing */}
       </div>
       <button className="add-field-button">Add Experience</button>
