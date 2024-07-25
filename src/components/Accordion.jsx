@@ -3,6 +3,7 @@ import AccordionPage from "./AccordionPage";
 import PersonalInfoField from "./PersonalInfoField";
 import EducationField from "./EducationField";
 import ExperienceField from "./ExperienceField";
+import AddExperienceField from "./AddExperienceField";
 import "../styles/Accordion.css"
 
 export default function Accordion({ children }) {
@@ -29,7 +30,8 @@ export default function Accordion({ children }) {
         open={openID === 2}
         onOpen={()=>setOpenID(2)}
       >
-        <ExperienceField />
+        {/* <ExperienceField /> */}
+        <AddExperienceField/>
       </AccordionPage>
     </div   >
   );
