@@ -1,6 +1,6 @@
 const data = {
   personalInfo: {
-    name: "",
+    name: "Test Darwin",
     email: "",
     phoneNumber: "",
     address: "",
@@ -16,3 +16,5 @@ const data = {
     experienceThree: {},
   },
 };
+
+export default data;

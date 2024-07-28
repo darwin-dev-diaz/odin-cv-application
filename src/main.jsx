@@ -7,9 +7,13 @@ import "./styles/main.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <div className="app">
+
     <Accordion>
     </Accordion>
-    <CV></CV>
+    <CV>
+    </CV>
+    </div>
     
   </React.StrictMode>
 );
