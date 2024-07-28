@@ -2,7 +2,7 @@ import "../styles/AddInputField.css";
 import EditSquare from "../assets/EditSquare"
 import Trash from "../assets/Trash"
 
-export default function AddExperienceField({}) {
+export default function AddExperienceField({onAddExperience}) {
   //  pass in the object that contains the experience information
 
   function makePastInfo() {}
@@ -24,7 +24,7 @@ export default function AddExperienceField({}) {
         </div>
         {/* have a function here that converts the object to a thing */}
       </div>
-      <button className="add-field-button">Add Experience</button>
+      <button className="add-field-button" onClick={onAddExperience}>Add Experience</button>
     </div>
   );
 }
