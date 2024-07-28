@@ -1,6 +1,6 @@
 import "../styles/InputField.css";
 
-export default function EducationField() {
+export default function EducationField({onSubmitField, onCancel}) {
   return (
     <form>
       <div className="input-group">
@@ -67,8 +67,8 @@ export default function EducationField() {
       </div>
 
       <div className="button-container">
-        <button className="cancel-button">Cancel</button>
-        <button className="save-button">Save</button>
+        <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>
+        <button className="save-button" type="button" onClick={onSubmitField}>Save</button>
       </div>
     </form>
   );
