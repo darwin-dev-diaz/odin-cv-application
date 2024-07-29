@@ -1,6 +1,21 @@
 import "../styles/InputField.css";
 
 export default function PersonalInfoField({ data, updateData }) {
+  function setChangeAndValue(nameVal) {
+    return {
+      onChange: (event) => {
+        updateData({
+          ...data,
+          personalInfo: {
+            ...data.personalInfo,
+            [nameVal]: event.target.value,
+          },
+        });
+      },
+      value: data.personalInfo[nameVal],
+    };
+  }
+
   return (
     <form>
       <div className="input-group">
@@ -12,17 +27,7 @@ export default function PersonalInfoField({ data, updateData }) {
           id="full-name"
           placeholder="First and last name"
           data-key="fullName"
-          onChange={(event) => {
-            updateData({
-              ...data,
-              personalInfo: {
-                ...data.personalInfo,
-                name: event.target.value,
-              },
-            });
-            console.log(data);
-          }}
-          value={data.personalInfo.name}
+          {...setChangeAndValue("name")}
         ></input>
       </div>
       <div className="input-group">
@@ -35,7 +40,7 @@ export default function PersonalInfoField({ data, updateData }) {
           id="email"
           placeholder="Enter email"
           data-key="email"
-          // value="josephine.meyers@mail.co.uk"
+          {...setChangeAndValue("email")}
         ></input>
       </div>
       <div className="input-group">
@@ -48,7 +53,7 @@ export default function PersonalInfoField({ data, updateData }) {
           id="phone-number"
           placeholder="Enter phone number"
           data-key="phoneNumber"
-          // value="+44 3245 5521 5521"
+          {...setChangeAndValue("phoneNumber")}
         ></input>
       </div>
       <div className="input-group">
@@ -61,7 +66,7 @@ export default function PersonalInfoField({ data, updateData }) {
           id="address"
           placeholder="City, Country"
           data-key="address"
-          //   value="London, UK"
+          {...setChangeAndValue("address")}
         ></input>
       </div>
     </form>

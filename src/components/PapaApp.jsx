@@ -5,7 +5,7 @@ import CV from "./CV";
 export default function PapaApp() {
   const [data, setData] = useState({
     personalInfo: {
-      name: "Initial Name",
+      name: "",
       email: "",
       phoneNumber: "",
       address: "",
