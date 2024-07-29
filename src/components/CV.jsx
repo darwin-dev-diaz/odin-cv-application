@@ -1,16 +1,9 @@
-import data from "../data"
+import PersonalInfoDisplay from "./PeronsalInfoDisplay";
 
-export default function CV({}){
-
-    return(
-
-            <div className="personal-info-header">
-                <h1>{data.personalInfo.name}</h1>
-                <h1>1</h1>
-                <h1>2</h1>
-                <h1>3</h1>
-            </div>
-                 
-
-    )
+export default function CV({data, updateData}) {
+  return (
+    <>
+      <PersonalInfoDisplay data={data} updateData={updateData}/>
+    </>
+  );
 }

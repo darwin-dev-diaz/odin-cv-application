@@ -5,7 +5,7 @@ import EducationPage from "./EducationPage";
 import ExperiencePage from "./ExperiencePage";
 import "../styles/Accordion.css";
 
-export default function Accordion() {
+export default function Accordion({data, updateData}) {
   const [openID, setOpenID] = useState(0);
 
   function handleAccordionOpen(id) {
@@ -23,7 +23,7 @@ export default function Accordion() {
         open={openID === 0}
         onOpen={() => handleAccordionOpen(0)}
       >
-        <PersonalInfoField />
+        <PersonalInfoField data={data} updateData={updateData}/>
       </AccordionPage>
       <AccordionPage
         title="Education"

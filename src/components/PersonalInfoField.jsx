@@ -1,7 +1,6 @@
 import "../styles/InputField.css";
-import data from "../data";
 
-export default function PersonalInfoField() {
+export default function PersonalInfoField({ data, updateData }) {
   return (
     <form>
       <div className="input-group">
@@ -14,9 +13,16 @@ export default function PersonalInfoField() {
           placeholder="First and last name"
           data-key="fullName"
           onChange={(event) => {
-            data.personalInfo.name = event.target.value;
+            updateData({
+              ...data,
+              personalInfo: {
+                ...data.personalInfo,
+                name: event.target.value,
+              },
+            });
+            console.log(data);
           }}
-          // value="Darwin Diaz"
+          value={data.personalInfo.name}
         ></input>
       </div>
       <div className="input-group">
@@ -29,9 +35,6 @@ export default function PersonalInfoField() {
           id="email"
           placeholder="Enter email"
           data-key="email"
-          onChange={(event) => {
-            data.personalInfo.email = event.target.value;
-          }}
           // value="josephine.meyers@mail.co.uk"
         ></input>
       </div>
@@ -45,9 +48,6 @@ export default function PersonalInfoField() {
           id="phone-number"
           placeholder="Enter phone number"
           data-key="phoneNumber"
-          onChange={(event) => {
-            data.personalInfo.phoneNumber = event.target.value;
-          }}
           // value="+44 3245 5521 5521"
         ></input>
       </div>
@@ -61,9 +61,6 @@ export default function PersonalInfoField() {
           id="address"
           placeholder="City, Country"
           data-key="address"
-          onChange={(event) => {
-            data.personalInfo.address = event.target.value;
-          }}
           //   value="London, UK"
         ></input>
       </div>
