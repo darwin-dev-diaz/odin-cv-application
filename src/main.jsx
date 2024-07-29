@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import PapaApp from "./components/PapaApp";
-import "./styles/reset.css";
-import "./styles/main.css";
+import App from "./components/App";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <PapaApp></PapaApp>
+    <App></App>
   </React.StrictMode>
 );

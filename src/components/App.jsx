@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Accordion from "./Accordion";
 import CV from "./CV";
+import "../styles/reset.css";
+import "../styles/App.css";
 
-export default function PapaApp() {
+export default function App() {
   const [data, setData] = useState({
     personalInfo: {
       name: "",
@@ -22,9 +24,9 @@ export default function PapaApp() {
     },
   });
   return (
-    <>
+    <div className="app">
       <Accordion data={data} updateData={setData} />
       <CV data={data} />
-    </>
+    </div>
   );
 }
