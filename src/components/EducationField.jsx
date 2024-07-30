@@ -18,14 +18,22 @@ export default function EducationField({
   function formSubmit(event) {
     event.preventDefault();
 
+    // get the index of the first non filled education object
+    const index = data.educationArr.findIndex((education) => !education.filled);
+
     // convert form data to object
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData.entries());
+    const newEducationObj = {filled:true, ...formObject};
 
-    // fill the educationArr at the right index with the forObject
+    // create newEducationObj
+    const newEducationArr = data.educationArr;
+    newEducationArr[index] = newEducationObj;
+
+    // fill the educationArr at the right index with the formObject
     updateData({
       ...data,
-      educationArr: [...data.educationArr, { filled: true, ...formObject }],
+      educationArr: newEducationArr,
     });
 
     // switch back to add field page
