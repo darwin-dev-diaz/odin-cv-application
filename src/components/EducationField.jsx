@@ -14,6 +14,8 @@ export default function EducationField({
   updateData,
   onSubmitField,
   onCancel,
+  editID,
+  setEditID,
 }) {
   function formSubmit(event) {
     event.preventDefault();
@@ -35,6 +37,9 @@ export default function EducationField({
       ...data,
       educationArr: newEducationArr,
     });
+
+    // if its in edit mode, reset the editID to null
+    editID ? setEditID(null) : null;
 
     // switch back to add field page
     onSubmitField();

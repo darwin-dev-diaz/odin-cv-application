@@ -2,7 +2,7 @@ import "../styles/AddInputField.css";
 import EditSquare from "../assets/EditSquare";
 import Trash from "../assets/Trash";
 
-export default function AddEducationField({ data, updateData, onAddEducation }) {
+export default function AddEducationField({ data, updateData, setEditID, onAddEducation }) {
   //  pass in the object that contains the experience information
 
   function onClick() {
@@ -30,6 +30,12 @@ export default function AddEducationField({ data, updateData, onAddEducation }) 
     updateData({...data, educationArr: newEducationArr});
   }
 
+  function handleEdit(i) {
+    // goes to field screen with prefilled values
+    setEditID(i);
+    onAddEducation();
+  }
+
   const educationItems = data.educationArr
     .filter((education) => education.filled)
     .map((education, i) => {
@@ -37,7 +43,7 @@ export default function AddEducationField({ data, updateData, onAddEducation }) 
         <div className="past-info" key={i}>
           {education.schoolName}
           <div className="icon-group">
-            <EditSquare />
+            <EditSquare onClick={()=>{handleEdit(i)}}/>
             <Trash onClick={()=>handleDelete(i)}/>
           </div>
         </div>
