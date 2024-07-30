@@ -30,7 +30,7 @@ export default function Accordion({data, updateData}) {
         open={openID === 1}
         onOpen={() => handleAccordionOpen(1)}
       >
-        <EducationPage />
+        <EducationPage data={data} updateData={updateData}/>
       </AccordionPage>
       <AccordionPage
         title="Experience"

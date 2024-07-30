@@ -1,6 +1,8 @@
 import "../styles/InputField.css";
 
-export default function ExperienceField({onSubmitField, onCancel}) {
+export default function ExperienceField({ onSubmitField, onCancel }) {
+  
+
   return (
     <form>
       <div className="input-group">
@@ -79,8 +81,12 @@ export default function ExperienceField({onSubmitField, onCancel}) {
       </div>
 
       <div className="button-container">
-        <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>
-        <button className="save-button" type="button" onClick={onSubmitField}>Save</button>
+        <button className="cancel-button" type="button" onClick={onCancel}>
+          Cancel
+        </button>
+        <button className="save-button" type="button" onClick={onSubmitField}>
+          Save
+        </button>
       </div>
     </form>
   );

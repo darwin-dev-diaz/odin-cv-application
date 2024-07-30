@@ -12,11 +12,7 @@ export default function App() {
       phoneNumber: "",
       address: "",
     },
-    education: {
-      educationOne: {},
-      educationTwo: {},
-      educationThree: {},
-    },
+    educationArr: [],
     experience: {
       experienceOne: {},
       experienceTwo: {},

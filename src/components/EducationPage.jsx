@@ -1,20 +1,22 @@
 import { useState } from "react";
 
-import ExperienceField from "./EducationField";
-import AddExperienceField from "./AddEducationField";
+import EducationField from "./EducationField";
+import AddEducationField from "./AddEducationField";
 
-export default function EducationPage() {
+export default function EducationPage({ data, updateData }) {
   const [showEducationField, setShowEducationField] = useState(false);
+
   return (
     <>
       {showEducationField ? (
-        <ExperienceField 
-        onSubmitField={()=>setShowEducationField(false)}
-        onCancel={()=>setShowEducationField(false)}/>
-      ) : (
-        <AddExperienceField
-          onAddEducation={() => setShowEducationField(true)}
+        <EducationField
+          onSubmitField={() => setShowEducationField(false)}
+          onCancel={() => setShowEducationField(false)}
+          data={data}
+          updateData={updateData}
         />
+      ) : (
+        <AddEducationField onAddEducation={() => setShowEducationField(true)} />
       )}
     </>
   );

@@ -1,52 +1,87 @@
 import "../styles/InputField.css";
 
-export default function EducationField({onSubmitField, onCancel}) {
+// { EDUCATION DATA FORMAT
+//   filled: false,
+//   schoolName: "1",
+//   degree: "",
+//   startDate: "",
+//   endDate: "",
+//   location: "",
+// }
+
+export default function EducationField({
+  data,
+  updateData,
+  onSubmitField,
+  onCancel,
+}) {
+  function formSubmit(event) {
+    event.preventDefault();
+
+    // convert form data to object
+    const formData = new FormData(event.target);
+    const formObject = Object.fromEntries(formData.entries());
+
+    // fill the educationArr at the right index with the forObject
+    updateData({
+      ...data,
+      educationArr: [...data.educationArr, { filled: true, ...formObject }],
+    });
+
+    // switch back to add field page
+    onSubmitField();
+  }
+
   return (
-    <form>
+    <form onSubmit={formSubmit}>
       <div className="input-group">
-        <label for="school-name">
-          <span class="label-text">School</span>
+        <label htmlFor="school-name">
+          <span className="label-text">School</span>
         </label>
         <input
           type="text"
           id="school-name"
+          name="schoolName"
           placeholder="Enter University"
           data-key="schoolName"
           // value="Darwin Diaz"
         ></input>
       </div>
       <div className="input-group">
-        <label for="degree">
-          <span class="label-text">Degree</span>
+        <label htmlFor="degree">
+          <span className="label-text">Degree</span>
         </label>
         <input
           type="text"
           id="degree"
+          name="degree"
           placeholder="Enter Degree or Field of Study"
           data-key="degree"
           // value="Darwin Diaz"
         ></input>
       </div>
       <div className="dates-group">
-        <div class="input-group">
-          <label for="date">
-            <span class="label-text">Start Date</span>
+        <div className="input-group">
+          <label htmlFor="date">
+            <span className="label-text">Start Date</span>
           </label>
           <input
             type="text"
-            id="date"
+            id="start-date"
+            name="startDate"
             placeholder="Enter Start Date"
             data-key="startDate"
             // value=""
           />
         </div>
-        <div class="input-group">
-          <label for="date">
-            <span class="label-text">End Date</span>
+        <div className="input-group">
+          <label htmlFor="date">
+            <span className="label-text">End Date</span>
           </label>
           <input
             type="text"
-            id="date"
+            id="end-date"
+            name="endDate"
             placeholder="Enter End Date"
             data-key="endDate"
             // value=""
@@ -54,12 +89,13 @@ export default function EducationField({onSubmitField, onCancel}) {
         </div>
       </div>
       <div className="input-group">
-        <label for="location">
-          <span class="label-text">Location</span>
+        <label htmlFor="location">
+          <span className="label-text">Location</span>
         </label>
         <input
           type="text"
           id="location"
+          name="location"
           placeholder="Enter Location"
           data-key="location"
           // value="Darwin Diaz"
@@ -67,8 +103,12 @@ export default function EducationField({onSubmitField, onCancel}) {
       </div>
 
       <div className="button-container">
-        <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>
-        <button className="save-button" type="button" onClick={onSubmitField}>Save</button>
+        <button className="cancel-button" type="button" onClick={onCancel}>
+          Cancel
+        </button>
+        <button className="save-button" type="submit">
+          Save
+        </button>
       </div>
     </form>
   );
