@@ -12,33 +12,36 @@ export default function AddEducationField({ data, onAddEducation }) {
       const counter = document.getElementsByClassName("counter")[0];
       counter.classList.add("dim-red");
 
-      button.addEventListener("animationend", ()=>{
+      button.addEventListener("animationend", () => {
         button.classList.remove("dim-red");
         counter.classList.remove("dim-red");
-      })
+      });
     } else {
       onAddEducation();
     }
   }
 
+  const educationItems = data.educationArr.map((education, i) => {
+    return (
+      <div className="past-info" key={i}>
+        {education.schoolName}
+        <div className="icon-group">
+          <EditSquare />
+          <Trash />
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div className="add-input-field">
       <div className="past-info-container">
-        <div className="past-info">
-          School one
-          <div className="icon-group">
-            <EditSquare />
-            <Trash />
+        {educationItems.length > 0 ? (
+          educationItems
+        ) : (
+          <div className="past-info no-entries"> No entries
           </div>
-        </div>
-        <div className="past-info">
-          School two
-          <div className="icon-group">
-            <EditSquare />
-            <Trash />
-          </div>
-        </div>
-        {/* have a function here that converts the object to a thing */}
+        )}
       </div>
       <div className="button-counter-container">
         <button className="add-field-button" type="button" onClick={onClick}>
