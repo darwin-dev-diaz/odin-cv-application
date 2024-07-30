@@ -16,7 +16,11 @@ export default function EducationPage({ data, updateData }) {
           updateData={updateData}
         />
       ) : (
-        <AddEducationField data={data} onAddEducation={() => setShowEducationField(true)} />
+        <AddEducationField
+          data={data}
+          updateData={updateData}
+          onAddEducation={() => setShowEducationField(true)}
+        />
       )}
     </>
   );

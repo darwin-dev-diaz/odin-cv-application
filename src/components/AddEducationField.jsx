@@ -2,7 +2,7 @@ import "../styles/AddInputField.css";
 import EditSquare from "../assets/EditSquare";
 import Trash from "../assets/Trash";
 
-export default function AddEducationField({ data, onAddEducation }) {
+export default function AddEducationField({ data, updateData, onAddEducation }) {
   //  pass in the object that contains the experience information
 
   function onClick() {
@@ -21,9 +21,13 @@ export default function AddEducationField({ data, onAddEducation }) {
     }
   }
 
-  function onDelete() {
+  function handleDelete(i) {
     // remove the item from the list
-    //
+    const newEducationArr = data.educationArr;
+    newEducationArr.splice(i, 1)
+    newEducationArr.push({filled: false});
+
+    updateData({...data, educationArr: newEducationArr});
   }
 
   const educationItems = data.educationArr
@@ -34,7 +38,7 @@ export default function AddEducationField({ data, onAddEducation }) {
           {education.schoolName}
           <div className="icon-group">
             <EditSquare />
-            <Trash />
+            <Trash onClick={()=>handleDelete(i)}/>
           </div>
         </div>
       );
