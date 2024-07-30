@@ -23,15 +23,14 @@
     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
-    
-
-    
 }
 .add-field-button:hover {
     background-color: #f3f4f6;
     border-color: #1b1f2326;
     transition-duration: 0.1s;
 }
+
+
 
 .past-info-container{
     display: flex;
@@ -58,4 +57,34 @@
 
 svg{
     cursor: pointer;
+}
+
+.button-counter-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter{
+    color: #9c9b9b;
+}
+
+.add-field-button.dim-red {
+    background-color: #ffcccc; /* Dim red background */
+    border-color: #ff9999; /* Dim red border */
+    color: #800000; /* Dim red text */
+    animation: shake 0.3s; /* Apply shake animation */
+}
+
+.counter.dim-red{
+    color: #800000; /* Dim red text */
+    animation: shake 0.3s; /* Apply shake animation */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
