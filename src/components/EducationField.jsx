@@ -1,5 +1,5 @@
 import "../styles/InputField.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // { EDUCATION DATA FORMAT
 //   filled: false,
@@ -26,24 +26,38 @@ export default function EducationField({
     location: "",
   });
 
-  if (Number.isInteger(editID)) {
-    console.log("this ran edit");
-    setInputValues({ ...data.educationArr[editID] });
-    setEditID(null);
-  }
-  console.log("this ran");
+  useEffect(() => {
+    if (Number.isInteger(editID)) {
+      setInputValues({ ...data.educationArr[editID] });
+    }
+  }, []);
 
+  function formSubmitEdit(event) {
+    event.preventDefault();
+
+    const newEducationObj = { filled: true, ...inputValues };
+
+    // create newEducationObj
+    const newEducationArr = data.educationArr;
+    newEducationArr[editID] = newEducationObj;
+
+    // fill the educationArr at the right index with the formObject
+    updateData({
+      ...data,
+      educationArr: newEducationArr,
+    });
+
+    // switch back to add field page
+    setEditID(null);
+    onSubmitField();
+    console.log(data.educationArr)
+
+  }
   function formSubmit(event) {
     event.preventDefault();
 
     // get the index of the first non filled education object
     const index = data.educationArr.findIndex((education) => !education.filled);
-
-    // convert form data to object
-    // const formData = new FormData(event.target);
-    // const formObject = Object.fromEntries(formData.entries());
-    // const newEducationObj = { filled: true, ...formObject };
-
     const newEducationObj = { filled: true, ...inputValues };
 
     // create newEducationObj
@@ -58,36 +72,11 @@ export default function EducationField({
 
     // switch back to add field page
     onSubmitField();
-  }
-
-  function formSubmitEdit(event) {
-    // Do this one when the editID isn't null
-    event.preventDefault();
-
-    // get the index of the first non filled education object
-    const index = data.educationArr.findIndex((education) => !education.filled);
-
-    // convert form data to object
-    const formData = new FormData(event.target);
-    const formObject = Object.fromEntries(formData.entries());
-    const newEducationObj = { filled: true, ...formObject };
-
-    // create newEducationObj
-    const newEducationArr = data.educationArr;
-    newEducationArr[index] = newEducationObj;
-
-    // fill the educationArr at the right index with the formObject
-    updateData({
-      ...data,
-      educationArr: newEducationArr,
-    });
-
-    // switch back to add field page
-    onSubmitField();
+    console.log(data.educationArr)
   }
 
   return (
-    <form onSubmit={formSubmit}>
+    <form onSubmit={Number.isInteger(editID) ? formSubmitEdit : formSubmit}>
       <div className="input-group">
         <label htmlFor="school-name">
           <span className="label-text">School</span>
@@ -98,7 +87,6 @@ export default function EducationField({
           name="schoolName"
           placeholder="Enter University"
           data-key="schoolName"
-          // value={editID ? data.educationArr[editID].schoolName : ""}
           value={inputValues.schoolName}
           onChange={(event) => {
             setInputValues({ ...inputValues, schoolName: event.target.value });
