@@ -1,4 +1,5 @@
 import "../styles/InputField.css";
+import { useState } from "react";
 
 // { EDUCATION DATA FORMAT
 //   filled: false,
@@ -17,6 +18,21 @@ export default function EducationField({
   editID,
   setEditID,
 }) {
+  const [inputValues, setInputValues] = useState({
+    schoolName: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+  });
+
+  if (Number.isInteger(editID)) {
+    console.log("this ran edit");
+    setInputValues({ ...data.educationArr[editID] });
+    setEditID(null);
+  }
+  console.log("this ran");
+
   function formSubmit(event) {
     event.preventDefault();
 
@@ -24,9 +40,11 @@ export default function EducationField({
     const index = data.educationArr.findIndex((education) => !education.filled);
 
     // convert form data to object
-    const formData = new FormData(event.target);
-    const formObject = Object.fromEntries(formData.entries());
-    const newEducationObj = {filled:true, ...formObject};
+    // const formData = new FormData(event.target);
+    // const formObject = Object.fromEntries(formData.entries());
+    // const newEducationObj = { filled: true, ...formObject };
+
+    const newEducationObj = { filled: true, ...inputValues };
 
     // create newEducationObj
     const newEducationArr = data.educationArr;
@@ -38,8 +56,31 @@ export default function EducationField({
       educationArr: newEducationArr,
     });
 
-    // if its in edit mode, reset the editID to null
-    editID ? setEditID(null) : null;
+    // switch back to add field page
+    onSubmitField();
+  }
+
+  function formSubmitEdit(event) {
+    // Do this one when the editID isn't null
+    event.preventDefault();
+
+    // get the index of the first non filled education object
+    const index = data.educationArr.findIndex((education) => !education.filled);
+
+    // convert form data to object
+    const formData = new FormData(event.target);
+    const formObject = Object.fromEntries(formData.entries());
+    const newEducationObj = { filled: true, ...formObject };
+
+    // create newEducationObj
+    const newEducationArr = data.educationArr;
+    newEducationArr[index] = newEducationObj;
+
+    // fill the educationArr at the right index with the formObject
+    updateData({
+      ...data,
+      educationArr: newEducationArr,
+    });
 
     // switch back to add field page
     onSubmitField();
@@ -57,7 +98,11 @@ export default function EducationField({
           name="schoolName"
           placeholder="Enter University"
           data-key="schoolName"
-          // value="Darwin Diaz"
+          // value={editID ? data.educationArr[editID].schoolName : ""}
+          value={inputValues.schoolName}
+          onChange={(event) => {
+            setInputValues({ ...inputValues, schoolName: event.target.value });
+          }}
         ></input>
       </div>
       <div className="input-group">
@@ -70,7 +115,10 @@ export default function EducationField({
           name="degree"
           placeholder="Enter Degree or Field of Study"
           data-key="degree"
-          // value="Darwin Diaz"
+          value={inputValues.degree}
+          onChange={(event) => {
+            setInputValues({ ...inputValues, degree: event.target.value });
+          }}
         ></input>
       </div>
       <div className="dates-group">
@@ -84,7 +132,10 @@ export default function EducationField({
             name="startDate"
             placeholder="Enter Start Date"
             data-key="startDate"
-            // value=""
+            value={inputValues.startDate}
+            onChange={(event) => {
+              setInputValues({ ...inputValues, startDate: event.target.value });
+            }}
           />
         </div>
         <div className="input-group">
@@ -97,7 +148,10 @@ export default function EducationField({
             name="endDate"
             placeholder="Enter End Date"
             data-key="endDate"
-            // value=""
+            value={inputValues.endDate}
+            onChange={(event) => {
+              setInputValues({ ...inputValues, endDate: event.target.value });
+            }}
           />
         </div>
       </div>
@@ -111,7 +165,10 @@ export default function EducationField({
           name="location"
           placeholder="Enter Location"
           data-key="location"
-          // value="Darwin Diaz"
+          value={inputValues.location}
+          onChange={(event) => {
+            setInputValues({ ...inputValues, location: event.target.value });
+          }}
         ></input>
       </div>
 
