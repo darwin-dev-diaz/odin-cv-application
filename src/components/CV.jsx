@@ -15,10 +15,10 @@ export default function CV({ data }) {
             </div>
             <div className="experience-location">{experience.location}</div>
           </div>
-          <div className="experience-date">
+          <div className="experience-date greyed-out-text">
             {experience.startDate} - {experience.endDate}
           </div>
-          <div className="experience-description">{experience.description}</div>
+          <div className="experience-description greyed-out-text">{experience.description}</div>
         </div>
       );
     });
@@ -34,7 +34,7 @@ export default function CV({ data }) {
             </div>
             <div className="education-location">{education.location}</div>
           </div>
-          <div className="education-date">
+          <div className="education-date greyed-out-text">
             {education.startDate} - {education.endDate}
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function CV({ data }) {
         <div className="resume-right-section profile">
           <div className="resume-right-section-title letter-spacing-title">PROFILE</div>
           <hr className="line" />
-          <div className="resume-right-subsection">
+          <div className="resume-right-subsection greyed-out-text">
             {data.personalInfo.profile}
           </div>
           <hr className="resume-right-section-line" />

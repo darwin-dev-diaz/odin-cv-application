@@ -6,7 +6,7 @@ export default function AddEducationField({ data, updateData, setEditID, onAddEd
   //  pass in the object that contains the experience information
 
   function onClick() {
-    if (data.educationArr.filter((education) => education.filled).length > 2) {
+    if (data.educationArr.filter((education) => education.filled).length > 1) {
       const button = document.getElementsByClassName("add-field-button")[0];
       button.classList.add("dim-red");
       const counter = document.getElementsByClassName("counter")[0];
@@ -64,7 +64,7 @@ export default function AddEducationField({ data, updateData, setEditID, onAddEd
         <button className="add-field-button" type="button" onClick={onClick}>
           Add Education
         </button>
-        <div className="counter">{data.educationArr.filter((education) => education.filled).length}/3</div>
+        <div className="counter">{data.educationArr.filter((education) => education.filled).length}/2</div>
       </div>
     </div>
   );
