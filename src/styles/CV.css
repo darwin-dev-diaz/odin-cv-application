@@ -6,9 +6,11 @@
   width: 850px;
   /* grid-template-columns: ; */
   background-color: red;
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 48px 0px
 }
 
 .resume-header {
+  color: #EEE;
   background-color: #508C9B;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -27,7 +29,7 @@
 }
 
 .resume-left {
-  background-color: green;
+  background-color: #EEE;
   padding: 30px;
   border-right: 2px black solid;
 }
@@ -39,10 +41,10 @@
 }
 
 .line {
-  border: 2px solid red;
-  width: 70px;
+  border: 1.5px solid black;
+  width: 35px;
   display: flex;
-  margin: 10px 0px 15px 0px;
+  margin: 7px 0px 15px 0px;
 }
 
 .resume-left-section-title {
@@ -59,15 +61,15 @@
   font-weight: bold;
 }
 .resume-right {
-  background-color: orange;
+  background-color: white;
   padding: 20px;
 }
 
 .resume-right-section {
-  background-color: honeydew;
+  /* background-color: honeydew; */
   width: 100%;
   /* height: 200px; */
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .resume-right-section-title {
@@ -75,7 +77,8 @@
 }
 
 .resume-right-section-line {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* width: 95%; */
 }
 
 .resume-right-subsection.experience{
@@ -131,4 +134,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.letter-spacing-title{
+  letter-spacing: 2px;
+}
+.letter-spacing-subtitle{
+  letter-spacing: 1px;
 }

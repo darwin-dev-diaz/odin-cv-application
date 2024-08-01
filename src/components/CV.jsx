@@ -41,14 +41,6 @@ export default function CV({ data }) {
       );
     });
 
-  <div className="education-container">
-    <div className="education-top-line">
-      <div className="education-title">Nice degree, College</div>
-      <div className="education-location">Clifton, NJ</div>
-    </div>
-    <div className="education-date">Dec 2015 - Dec 2019</div>
-  </div>;
-
   return (
     <div className="resume">
       <div className="resume-header">
@@ -57,22 +49,22 @@ export default function CV({ data }) {
       </div>
       <div className="resume-left">
         <div className="resume-left-section">
-          <div className="resume-left-section-title">Details</div>
+          <div className="resume-left-section-title letter-spacing-title">DETAILS</div>
           <hr className="line"></hr>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Address</div>
+            <div className="resume-left-subsection-title letter-spacing-subtitle">ADDRESS</div>
             <div className="resume-left-subsection-text">
               {data.personalInfo.address}
             </div>
           </div>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Phone</div>
+            <div className="resume-left-subsection-title letter-spacing-subtitle">PHONE</div>
             <div className="resume-left-subsection-text">
               {data.personalInfo.phoneNumber}
             </div>
           </div>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Email</div>
+            <div className="resume-left-subsection-title letter-spacing-subtitle">EMAIL</div>
             <div className="resume-left-subsection-text">
               {data.personalInfo.email}
             </div>
@@ -81,7 +73,7 @@ export default function CV({ data }) {
       </div>
       <div className="resume-right">
         <div className="resume-right-section profile">
-          <div className="resume-right-section-title">Profile</div>
+          <div className="resume-right-section-title letter-spacing-title">PROFILE</div>
           <hr className="line" />
           <div className="resume-right-subsection">
             {data.personalInfo.profile}
@@ -91,7 +83,7 @@ export default function CV({ data }) {
 
         {/* Experience */}
         <div className="resume-right-section experience">
-          <div className="resume-right-section-title">Experience</div>
+          <div className="resume-right-section-title letter-spacing-title">EXPERIENCE</div>
           <hr className="line" />
           <div className="resume-right-subsection experience">
             {experienceElements}
@@ -101,7 +93,7 @@ export default function CV({ data }) {
 
         {/* Education */}
         <div className="resume-right-section education">
-          <div className="resume-right-section-title">Education</div>
+          <div className="resume-right-section-title letter-spacing-title">EDUCATION</div>
           <hr className="line" />
           <div className="resume-right-subsection education">
             {educationElements}
