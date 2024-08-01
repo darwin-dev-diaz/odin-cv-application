@@ -1,4 +1,4 @@
-import "../styles/InputField.css";
+import "../../styles/InputField.css";
 
 export default function ExperienceField({ onSubmitField, onCancel }) {
   

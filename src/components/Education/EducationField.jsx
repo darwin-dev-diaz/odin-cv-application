@@ -1,14 +1,5 @@
-import "../styles/InputField.css";
+import "../../styles/InputField.css";
 import { useEffect, useState } from "react";
-
-// { EDUCATION DATA FORMAT
-//   filled: false,
-//   schoolName: "1",
-//   degree: "",
-//   startDate: "",
-//   endDate: "",
-//   location: "",
-// }
 
 export default function EducationField({
   data,
@@ -50,7 +41,6 @@ export default function EducationField({
     // switch back to add field page
     setEditID(null);
     onSubmitField();
-    console.log(data.educationArr)
 
   }
   function formSubmit(event) {
@@ -72,7 +62,6 @@ export default function EducationField({
 
     // switch back to add field page
     onSubmitField();
-    console.log(data.educationArr)
   }
 
   return (

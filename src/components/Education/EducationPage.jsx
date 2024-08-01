@@ -9,7 +9,6 @@ export default function EducationPage({ data, updateData }) {
 
   return (
     <>
-      EDIT ID: {editID}
       {showEducationField ? (
         <EducationField
           onSubmitField={() => setShowEducationField(false)}

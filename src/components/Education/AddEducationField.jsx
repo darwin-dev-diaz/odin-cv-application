@@ -1,6 +1,6 @@
-import "../styles/AddInputField.css";
-import EditSquare from "../assets/EditSquare";
-import Trash from "../assets/Trash";
+import "../../styles/AddInputField.css";
+import EditSquare from "../../assets/EditSquare";
+import Trash from "../../assets/Trash";
 
 export default function AddEducationField({ data, updateData, setEditID, onAddEducation }) {
   //  pass in the object that contains the experience information

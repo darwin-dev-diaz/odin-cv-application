@@ -1,8 +1,8 @@
 import { useState } from "react";
 import AccordionPage from "./AccordionPage";
-import PersonalInfoField from "./PersonalInfoField";
-import EducationPage from "./EducationPage";
-import ExperiencePage from "./ExperiencePage";
+import PersonalInfoField from "./PersonalInfo/PersonalInfoField";
+import EducationPage from "./Education/EducationPage";
+import ExperiencePage from "./Experience/ExperiencePage";
 import "../styles/Accordion.css";
 
 export default function Accordion({data, updateData}) {
