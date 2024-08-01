@@ -11,6 +11,7 @@ export default function App() {
       email: "",
       phoneNumber: "",
       address: "",
+      profile: "",
     },
     educationArr: [{ filled: false }, { filled: false }, { filled: false }],
     experienceArr: [{ filled: false }, { filled: false }, { filled: false }],

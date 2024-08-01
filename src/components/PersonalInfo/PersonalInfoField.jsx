@@ -69,6 +69,20 @@ export default function PersonalInfoField({ data, updateData }) {
           {...setChangeAndValue("address")}
         ></input>
       </div>
+      <div className="input-group">
+        <label htmlFor="profile">
+          <span className="label-text">Profile</span>
+          <span className="recommended-text">recommended</span>
+        </label>
+        <textarea
+          type="text"
+          rows={10}
+          id="address"
+          placeholder="A short summary of your skills and professional experience"
+          data-key="address"
+          {...setChangeAndValue("profile")}
+        ></textarea>
+      </div>
     </form>
   );
 }

@@ -8,6 +8,7 @@ export default function PersonalInfoDisplay({ data }) {
         <h1>Email: {data.personalInfo.email}</h1>
         <h1>Phone Number: {data.personalInfo.phoneNumber}</h1>
         <h1>Address: {data.personalInfo.address}</h1>
+        <h1>Profile: {data.personalInfo.profile}</h1>
       </div>
     </>
   );
