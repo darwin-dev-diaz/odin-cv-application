@@ -4,21 +4,50 @@ import ExperienceDisplay from "./Experience/ExperienceDisplay";
 import "../styles/CV.css";
 
 export default function CV({ data }) {
-
   const experienceElements = data.experienceArr
     .filter((experience) => experience.filled)
     .map((experience, i) => {
       return (
         <div className="experience-container" key={i}>
           <div className="experience-top-line">
-            <div className="experience-title">{experience.position}, {experience.companyName}</div>
+            <div className="experience-title">
+              {experience.position}, {experience.companyName}
+            </div>
             <div className="experience-location">{experience.location}</div>
           </div>
-          <div className="experience-date">{experience.startDate} - {experience.endDate}</div>
+          <div className="experience-date">
+            {experience.startDate} - {experience.endDate}
+          </div>
           <div className="experience-description">{experience.description}</div>
         </div>
       );
     });
+
+  const educationElements = data.educationArr
+    .filter((education) => education.filled)
+    .map((education, i) => {
+      return (
+        <div className="education-container" key={i}>
+          <div className="education-top-line">
+            <div className="education-title">
+              {education.degree}, {education.schoolName}
+            </div>
+            <div className="education-location">{education.location}</div>
+          </div>
+          <div className="education-date">
+            {education.startDate} - {education.endDate}
+          </div>
+        </div>
+      );
+    });
+
+  <div className="education-container">
+    <div className="education-top-line">
+      <div className="education-title">Nice degree, College</div>
+      <div className="education-location">Clifton, NJ</div>
+    </div>
+    <div className="education-date">Dec 2015 - Dec 2019</div>
+  </div>;
 
   return (
     <div className="resume">
@@ -66,45 +95,6 @@ export default function CV({ data }) {
           <hr className="line" />
           <div className="resume-right-subsection experience">
             {experienceElements}
-            {/* <div className="experience-container">
-              <div className="experience-top-line">
-                <div className="experience-title">Programmer, Company</div>
-                <div className="experience-location">Clifton, NJ</div>
-              </div>
-              <div className="experience-date">Dec 2015 - Present</div>
-              <div className="experience-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
-                distinctio nam itaque quod enim. Fugiat provident tenetur aut!
-                Itaque esse expedita magni facere dignissimos quos inventore
-                maxime error veniam in.
-              </div>
-            </div>
-            <div className="experience-container">
-              <div className="experience-top-line">
-                <div className="experience-title">Programmer, Company</div>
-                <div className="experience-location">Clifton, NJ</div>
-              </div>
-              <div className="experience-date">Dec 2015 - Present</div>
-              <div className="experience-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
-                distinctio nam itaque quod enim. Fugiat provident tenetur aut!
-                Itaque esse expedita magni facere dignissimos quos inventore
-                maxime error veniam in.
-              </div>
-            </div>
-            <div className="experience-container">
-              <div className="experience-top-line">
-                <div className="experience-title">Programmer, Company</div>
-                <div className="experience-location">Clifton, NJ</div>
-              </div>
-              <div className="experience-date">Dec 2015 - Present</div>
-              <div className="experience-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
-                distinctio nam itaque quod enim. Fugiat provident tenetur aut!
-                Itaque esse expedita magni facere dignissimos quos inventore
-                maxime error veniam in.
-              </div>
-            </div> */}
           </div>
           <hr className="resume-right-section-line" />
         </div>
@@ -114,13 +104,7 @@ export default function CV({ data }) {
           <div className="resume-right-section-title">Education</div>
           <hr className="line" />
           <div className="resume-right-subsection education">
-            <div className="education-container">
-              <div className="education-top-line">
-                <div className="education-title">Nice degree, College</div>
-                <div className="education-location">Clifton, NJ</div>
-              </div>
-              <div className="education-date">Dec 2015 - Dec 2019</div>
-            </div>
+            {educationElements}
           </div>
         </div>
       </div>
