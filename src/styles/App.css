@@ -5,4 +5,9 @@ body {
 
 .app{
   display: flex;
+  gap: 20px;
+  padding: 75px;
+  /* background-color: ; */
+  /* align-items: center; */
+  justify-content: center;
 }

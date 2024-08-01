@@ -96,14 +96,6 @@ export default function Accordion({ data, updateData }) {
 
   return (
     <div className="accordion-container">
-      <div className="button-container">
-        <button className="fill-form-button" onClick={handleFillForm}>
-          Fill Form
-        </button>
-        <button className="clear-form-button" onClick={handleClearForm}>
-          Clear Form
-        </button>
-      </div>
       <AccordionPage
         title="Personal Info"
         open={openID === 0}
@@ -125,6 +117,14 @@ export default function Accordion({ data, updateData }) {
       >
         <ExperiencePage data={data} updateData={updateData} />
       </AccordionPage>
+      <div className="button-container">
+        <button className="fill-form-button" onClick={handleFillForm}>
+          Fill Form
+        </button>
+        <button className="clear-form-button" onClick={handleClearForm}>
+          Clear Form
+        </button>
+      </div>
     </div>
   );
 }
