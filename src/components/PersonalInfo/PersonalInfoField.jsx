@@ -31,6 +31,18 @@ export default function PersonalInfoField({ data, updateData }) {
         ></input>
       </div>
       <div className="input-group">
+        <label htmlFor="profession">
+          <span className="label-text">Profession</span>
+        </label>
+        <input
+          type="text"
+          id="profession"
+          placeholder="Current profession"
+          data-key="profession"
+          {...setChangeAndValue("profession")}
+        ></input>
+      </div>
+      <div className="input-group">
         <label htmlFor="email">
           <span className="label-text">Email</span>
           <span className="recommended-text">recommended</span>

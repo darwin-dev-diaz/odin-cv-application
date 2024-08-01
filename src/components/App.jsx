@@ -8,6 +8,7 @@ export default function App() {
   const [data, setData] = useState({
     personalInfo: {
       name: "",
+      profession: "",
       email: "",
       phoneNumber: "",
       address: "",

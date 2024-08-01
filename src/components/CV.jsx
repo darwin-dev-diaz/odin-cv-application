@@ -4,44 +4,48 @@ import ExperienceDisplay from "./Experience/ExperienceDisplay";
 import "../styles/CV.css";
 
 export default function CV({ data }) {
+
+  const experienceElements = data.experienceArr
+    .filter((experience) => experience.filled)
+    .map((experience, i) => {
+      return (
+        <div className="experience-container" key={i}>
+          <div className="experience-top-line">
+            <div className="experience-title">{experience.position}, {experience.companyName}</div>
+            <div className="experience-location">{experience.location}</div>
+          </div>
+          <div className="experience-date">{experience.startDate} - {experience.endDate}</div>
+          <div className="experience-description">{experience.description}</div>
+        </div>
+      );
+    });
+
   return (
     <div className="resume">
       <div className="resume-header">
-        <h1 className="name">NAME</h1>
-        <h3 className="profession">Profession</h3>
+        <h1 className="name">{data.personalInfo.name}</h1>
+        <h3 className="profession">{data.personalInfo.profession}</h3>
       </div>
       <div className="resume-left">
         <div className="resume-left-section">
-          <div className="resume-left-section-title">
-            ResumeLeftSectionTitle
-          </div>
+          <div className="resume-left-section-title">Details</div>
           <hr className="line"></hr>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Title</div>
+            <div className="resume-left-subsection-title">Address</div>
             <div className="resume-left-subsection-text">
-              test test test test test test test test test test test test test
-              test test test test
+              {data.personalInfo.address}
             </div>
           </div>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Title</div>
+            <div className="resume-left-subsection-title">Phone</div>
             <div className="resume-left-subsection-text">
-              test test test test test test test test test test test test test
-              test test test test
+              {data.personalInfo.phoneNumber}
             </div>
           </div>
           <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Title</div>
+            <div className="resume-left-subsection-title">Email</div>
             <div className="resume-left-subsection-text">
-              test test test test test test test test test test test test test
-              test test test test
-            </div>
-          </div>
-          <div className="resume-left-subsection">
-            <div className="resume-left-subsection-title">Title</div>
-            <div className="resume-left-subsection-text">
-              test test test test test test test test test test test test test
-              test test test test
+              {data.personalInfo.email}
             </div>
           </div>
         </div>
@@ -51,21 +55,18 @@ export default function CV({ data }) {
           <div className="resume-right-section-title">Profile</div>
           <hr className="line" />
           <div className="resume-right-subsection">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, in
-            dicta omnis ipsam dolores unde eos quidem perspiciatis, consequuntur
-            velit obcaecati cupiditate inventore molestias quis recusandae
-            tempore similique amet tenetur.
+            {data.personalInfo.profile}
           </div>
           <hr className="resume-right-section-line" />
         </div>
-
 
         {/* Experience */}
         <div className="resume-right-section experience">
           <div className="resume-right-section-title">Experience</div>
           <hr className="line" />
           <div className="resume-right-subsection experience">
-            <div className="experience-container">
+            {experienceElements}
+            {/* <div className="experience-container">
               <div className="experience-top-line">
                 <div className="experience-title">Programmer, Company</div>
                 <div className="experience-location">Clifton, NJ</div>
@@ -103,7 +104,7 @@ export default function CV({ data }) {
                 Itaque esse expedita magni facere dignissimos quos inventore
                 maxime error veniam in.
               </div>
-            </div>
+            </div> */}
           </div>
           <hr className="resume-right-section-line" />
         </div>
