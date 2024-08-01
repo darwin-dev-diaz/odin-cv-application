@@ -13,11 +13,7 @@ export default function App() {
       address: "",
     },
     educationArr: [{ filled: false }, { filled: false }, { filled: false }],
-    experience: {
-      experienceOne: {},
-      experienceTwo: {},
-      experienceThree: {},
-    },
+    experienceArr: [{ filled: false }, { filled: false }, { filled: false }],
   });
   return (
     <div className="app">

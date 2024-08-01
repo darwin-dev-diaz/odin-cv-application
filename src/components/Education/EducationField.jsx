@@ -41,7 +41,6 @@ export default function EducationField({
     // switch back to add field page
     setEditID(null);
     onSubmitField();
-
   }
   function formSubmit(event) {
     event.preventDefault();
