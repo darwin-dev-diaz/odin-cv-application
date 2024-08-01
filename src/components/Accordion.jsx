@@ -16,8 +16,94 @@ export default function Accordion({ data, updateData }) {
     }
   }
 
+  function handleClearForm() {
+    updateData({
+      personalInfo: {
+        name: "",
+        profession: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+        profile: "",
+      },
+      educationArr: [{ filled: false }, { filled: false }, { filled: false }],
+      experienceArr: [{ filled: false }, { filled: false }, { filled: false }],
+    });
+  }
+  function handleFillForm() {
+    updateData({
+      personalInfo: {
+        name: "Darwin Doe",
+        profession: "Data Analyst",
+        email: "darwin.doe@example.com",
+        phoneNumber: "555-987-6543",
+        address: "456 Oak Avenue, Rivertown, NY 10001",
+        profile:
+          "Detail-oriented Data Analyst with 4+ years of experience in interpreting and analyzing data to drive successful business solutions.",
+      },
+      educationArr: [
+        {
+          filled: true,
+          schoolName: "Rivertown University",
+          location: "Rivertown, NY",
+          degree: "Master of Science in Data Science",
+          startDate: "2016-09-01",
+          endDate: "2018-05-15",
+        },
+        {
+          filled: true,
+          schoolName: "Rivertown University",
+          location: "Rivertown, NY",
+          degree: "Bachelor of Science in Statistics",
+          startDate: "2012-09-01",
+          endDate: "2016-05-15",
+        },
+      ],
+      experienceArr: [
+        {
+          filled: true,
+          companyName: "Data Insights LLC",
+          location: "New York, NY",
+          position: "Senior Data Analyst",
+          startDate: "2020-06-01",
+          endDate: "Present",
+          description:
+            "Lead data analysis projects, providing insights and recommendations based on data trends. Developed complex data models and visualizations using Python and Tableau.",
+        },
+        {
+          filled: true,
+          companyName: "Analytics Pro Inc.",
+          location: "New York, NY",
+          position: "Data Analyst",
+          startDate: "2018-07-01",
+          endDate: "2020-05-31",
+          description:
+            "Performed data mining, cleaning, and analysis to support business decisions. Created dashboards and reports to visualize key metrics using SQL and Power BI.",
+        },
+        {
+          filled: true,
+          companyName: "Tech Data Corp.",
+          location: "Rivertown, NY",
+          position: "Data Analyst Intern",
+          startDate: "2017-06-01",
+          endDate: "2017-08-31",
+          description:
+            "Assisted in data collection and preprocessing. Conducted exploratory data analysis and contributed to the development of predictive models.",
+        },
+      ],
+    });
+  }
+
   return (
     <div className="accordion-container">
+      <div className="button-container">
+        <button className="fill-form-button" onClick={handleFillForm}>
+          Fill Form
+        </button>
+        <button className="clear-form-button" onClick={handleClearForm}>
+          Clear Form
+        </button>
+      </div>
       <AccordionPage
         title="Personal Info"
         open={openID === 0}

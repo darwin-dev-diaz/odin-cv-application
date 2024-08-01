@@ -142,3 +142,7 @@
 .letter-spacing-subtitle{
   letter-spacing: 1px;
 }
+
+.greyed-out-text{
+  color: grey;
+}
