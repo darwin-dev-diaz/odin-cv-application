@@ -17,11 +17,14 @@ export default function EducationField({
     location: "",
   });
 
+  // you can make this a custom hook...
+  // use effects because a component was displayed .... 
+  // updating a state doesn't immdiately rerender the component ... 
   useEffect(() => {
     if (Number.isInteger(editID)) {
       setInputValues({ ...data.educationArr[editID] });
     }
-  }, []);
+  }, [data.educationArr, editID]);
 
   function formSubmitEdit(event) {
     event.preventDefault();

@@ -25,7 +25,7 @@ export default function ExperienceField({
     if (Number.isInteger(editID)) {
       setInputValues({ ...data.experienceArr[editID] });
     }
-  }, []);
+  }, [data.experienceArr, editID]);
 
   function formSubmitEdit(event) {
     event.preventDefault();
